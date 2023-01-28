@@ -1,0 +1,71 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <h1 class="text-center">캠핑장 수정</h1>
+    <div class="col-6 offset-3">
+        <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="post">
+        <div>
+        <div class="mb-3">
+          <label class="form-label" for="title">이름</label>
+          <input
+            class="form-control"
+            type="text"
+            id="title"
+            name="campground[title]"
+            value="<%=campground.title%>"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="location">위치</label>
+          <input
+            class="form-control"
+            type="text"
+            id="location"
+            name="campground[location]"
+            value="<%=campground.location%>"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="image">사진</label>
+          <input
+            class="form-control"
+            type="text"
+            id="image"
+            name="campground[image]"
+            value="<%=campground.image%>"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="price">가격</label>
+  
+          <div class="input-group">
+            <span class="input-group-text" id="price-label">￦</span>
+            <input
+              type="text"
+              class="form-control"
+              aria-label="price"
+              aria-describedby="price-label"
+              placeholder="10,000"
+              name="campground[price]"
+              value="<%=campground.price%>"
+            />
+            <span class="input-group-text">원</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="description">Description</label>
+          <textarea
+            class="form-control"
+            type="text"
+            id="description"
+            name="campground[description]"
+          ><%=campground.description%></textarea>
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-success">캠핑장 수정</button>
+        </div>
+      </form>
+      <a href="/campgrounds<%=campground._id%>">Back To Campground</a>
+
+    </div>
+  </div>
+  
