@@ -1,45 +1,85 @@
 <% layout('layouts/boilerplate')%>
 
-    <div class="row">
-        <h1 class="text-center">캠핑장 추가</h1>
-        <div class="col-6 offset-3">
-            <form action="/campgrounds" method="post" novalidate class="needs-validation">
-                <div class="mb-3">
-                    <label class="form-label" for="title">이름</label>
-                    <input class="form-control" type="text" id="title" name="campground[title]" required />
-                    <div class="valid-feedback">좋아요!</div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="location">위치</label>
-                    <input class="form-control" type="text" id="location" name="campground[location]" required />
-                    <div class="valid-feedback">좋아요!</div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="image">사진</label>
-                    <input class="form-control" type="text" id="image" name="campground[image]" required />
-                    <div class="valid-feedback">좋아요!</div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="price">가격</label>
+<div class="row">
+  <h1 class="text-center">캠핑장 추가</h1>
+  <div class="col-6 offset-3">
+    <form
+      action="/campgrounds"
+      method="post"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">이름</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="campground[title]"
+          required
+        />
+        <div class="valid-feedback">좋아요!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">위치</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="campground[location]"
+          required
+        />
+        <div class="valid-feedback">좋아요!</div>
+      </div>
 
-                    <div class="input-group">
-                        <span class="input-group-text" id="price-label">￦</span>
-                        <input type="text" class="form-control" aria-label="price" aria-describedby="price-label"
-                            placeholder="10,000" name="campground[price]" required />
-                        <span class="input-group-text">원</span>
-                    </div>
-                    <div class="valid-feedback">좋아요!</div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="description">Description</label>
-                    <textarea class="form-control" type="text" id="description" name="campground[description]"
-                        required></textarea>
-                    <div class="valid-feedback">좋아요!</div>
-                </div>
-                <div class="mb-3">
-                    <button class="btn btn-success">Add Campground</button>
-                </div>
-            </form>
-            <a href="/campgrounds">All Campgrounds</a>
+      <div class="mb-3">
+        <label class="form-label" for="price">가격</label>
+
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">￦</span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="price"
+            aria-describedby="price-label"
+            placeholder="10,000"
+            name="campground[price]"
+            required
+          />
+          <span class="input-group-text">원</span>
         </div>
-    </div>
+        <div class="valid-feedback">좋아요!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="campground[description]"
+          required
+        ></textarea>
+        <div class="valid-feedback">좋아요!</div>
+      </div>
+      <div class="mb-3">
+        <div class="input-group mb-3 custom-file">
+          <input
+            type="file"
+            class="form-control custom-file-input"
+            id="image"
+            name="image"
+            multiple
+            placeholder="파일을 올려주세요."
+          />
+          <label class="input-group-text" for="image">Upload</label>
+          <label class="custom-file-label border" for=""></label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-success">Add Campground</button>
+      </div>
+    </form>
+    <a href="/campgrounds">All Campgrounds</a>
+  </div>
+</div>

@@ -2,7 +2,7 @@
     <div class="row">
         <h1 class="text-center">캠핑장 수정</h1>
         <div class="col-6 offset-3">
-            <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="post" novalidate
+            <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="post" enctype="multipart/form-data" novalidate
                 class="needs-validation">
                 <div>
                     <div class="mb-3">
@@ -16,13 +16,6 @@
                         <label class="form-label" for="location">위치</label>
                         <input class="form-control" type="text" id="location" name="campground[location]"
                             value="<%=campground.location%>" required />
-                        <div class="valid-feedback">좋아요!</div>
-
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="image">사진</label>
-                        <input class="form-control" type="text" id="image" name="campground[image]"
-                            value="<%=campground.image%>" required />
                         <div class="valid-feedback">좋아요!</div>
 
                     </div>
@@ -44,7 +37,21 @@
                             required><%=campground.description%></textarea>
                     </div>
                     <div class="valid-feedback">좋아요!</div>
-
+                    <div class="mb-3">
+                        <div>파일추가</div>
+                        <div class="input-group mb-3 custom-file">
+                          <input
+                            type="file"
+                            class="form-control custom-file-input"
+                            id="image"
+                            name="image"
+                            multiple
+                            placeholder="파일을 올려주세요."
+                          />
+                          <label class="input-group-text" for="image">Upload</label>
+                          <label class="custom-file-label border" for=""></label>
+                        </div>
+                      </div>
                     <div class="mb-3">
                         <button class="btn btn-success">캠핑장 수정</button>
                     </div>
