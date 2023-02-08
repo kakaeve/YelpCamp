@@ -46,15 +46,26 @@
                             id="image"
                             name="image"
                             multiple
-                            placeholder="파일을 올려주세요."
                           />
                           <label class="input-group-text" for="image">Upload</label>
                           <label class="custom-file-label border" for=""></label>
                         </div>
-                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <%campground.images.forEach(function(img,i){%>
+                            <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="">
+                        
+                        <div class="form-check-inline">
+                            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                        </div>
+                        <label for="image-<%=i%>">삭제</label>
+                        <%})%>
+                    </div>
                     <div class="mb-3">
                         <button class="btn btn-success">캠핑장 수정</button>
                     </div>
             </form>
         </div>
     </div>
+
+    <!-- https://res.cloudinary.com/dzylnkhwu/image/upload/w_300/v1675826469/YelpCamp/gm2adgptiuevidczf7pz.jpg -->
